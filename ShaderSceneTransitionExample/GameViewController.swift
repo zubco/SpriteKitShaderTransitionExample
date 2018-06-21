@@ -22,20 +22,20 @@ class GameViewController: UIViewController {
         
         /* Set the scale mode to scale to fit the window */
         var scene = GameScene(size: skView.bounds.size)
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .aspectFill
         skView.presentScene(scene)
-        skView.backgroundColor = SKColor.whiteColor()
+        skView.backgroundColor = SKColor.white
     }
-
-    override func shouldAutorotate() -> Bool {
+        
+    override var shouldAutorotate: Bool {
         return true
     }
-
-    override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIInterfaceOrientationMask.allButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return UIInterfaceOrientationMask.all
         }
     }
 }
